@@ -61,3 +61,6 @@ class Ticket(db.Model):
     arrival_point = db.Column(db.String(64), nullable=False)
     simple_price = db.Column(db.Integer, nullable=False)
     high_price = db.Column(db.Integer, nullable=False)
+
+    def __init__(self):
+        pass

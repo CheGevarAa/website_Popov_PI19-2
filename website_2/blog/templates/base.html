@@ -18,6 +18,7 @@
             <li class="nav-item">
                 <a style="color:#FFFFFF;" href="{{url_for('base.info')}}">Info</a>
             </li>
+            {% if current_user.is_authenticated %}
             <li class="nav-item">
                <a style="color:#FFFFFF;" href="{{url_for('blog_posts.create_post')}}">Create Post</a>
             </li>
@@ -27,6 +28,7 @@
             <li class="nav-item">
                <a style="color:#FFFFFF;" href="{{url_for('users.logout')}}">Log Out</a>
             </li>
+            {% endif %}
         </ul>
     </div>
     <div class="mx-auto order-0">
@@ -37,12 +39,14 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
+            {% if current_user.is_authenticated == False %}
             <li class="nav-item">
                 <a style="color:#FFFFFF;" href="{{url_for('users.register')}}">Register</a>
             </li>
             <li class="nav-item">
                 <a style="color:#FFFFFF;" href="{{url_for('users.login')}}">Log In</a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

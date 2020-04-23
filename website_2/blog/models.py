@@ -52,15 +52,24 @@ class Post(db.Model):
 class Ticket(db.Model):
     user = db.relationship(User)
     ticket_id = db.Column(db.Integer, primary_key=True)
-    departure_time = db.Column(db.Integer, nullable=False)
-    arrival_time = db.Column(db.Integer, nullable=False)
+    departure_time = db.Column(db.String(64), nullable=False)
+    arrival_time = db.Column(db.String(64), nullable=False)
     simple = db.Column(db.Integer, nullable=False)
     high_class = db.Column(db.Integer, nullable=False)
-    path_time = db.Column(db.Integer, nullable=False)
+    day = db.Column(db.DateTime, nullable=False)
     departure_point = db.Column(db.String(64), nullable=False)
     arrival_point = db.Column(db.String(64), nullable=False)
     simple_price = db.Column(db.Integer, nullable=False)
     high_price = db.Column(db.Integer, nullable=False)
 
-    def __init__(self):
-        pass
+    def __init__(self, simple, high_class, day, departure_time, arrival_time, departure_point, arrival_point,
+                 simple_price, high_price):
+        self.simple = simple
+        self.arrival_time = arrival_time
+        self.departure_time = departure_time
+        self.high_class = high_class
+        self.day = day
+        self.departure_point = departure_point
+        self.departure_point = arrival_point
+        self.simple_price = simple_price
+        self.high_class = high_price

@@ -24,8 +24,10 @@ from blog.base.views import base
 from blog.blog_posts.veiws import blog_posts
 from blog.users.veiws import users
 from blog.errors.handlers import errors
+from blog.stock.veiws import stock
 
 app.register_blueprint(base)
 app.register_blueprint(blog_posts)
 app.register_blueprint(users)
 app.register_blueprint(errors)
+app.register_blueprint(stock)

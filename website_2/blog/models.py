@@ -47,3 +47,17 @@ class Post(db.Model):
     def __repr__(self):
         return f"Post ID {self.id} -- Date {self.date} -- {self.title}"
 
+
+class Ticket(db.Model):
+
+    __tablename__ = 'ticket_pool'
+
+    ticket_id = db.Column(db.Integer, primary_key=True)
+    departure_time = db.Column(db.Integer, nullable=False)
+    arrival_time = db.Column(db.Integer, nullable=False)
+    simple = db.Column(db.Boolean)
+    high_class = db.Column(db.Boolean)
+    departure_point = db.Column(db.String(64), nullable=False)
+    arrival_point = db.Column(db.String(64), nullable=False)
+    simple_price = db.Column(db.Integer, nullable=False)
+    high_price = db.Column(db.Integer, nullable=False)

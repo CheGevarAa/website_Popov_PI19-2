@@ -26,9 +26,7 @@
             <li class="nav-item">
                 <a style="color:#FFFFFF;" href="{{url_for('users.account')}}">Account</a>
             </li>
-            <li class="nav-item">
-               <a style="color:#FFFFFF;" href="{{url_for('users.logout')}}">Log Out</a>
-            </li>
+
             {% endif %}
         </ul>
     </div>
@@ -48,6 +46,9 @@
                 <a style="color:#FFFFFF;" href="{{url_for('users.login')}}">Log In</a>
             </li>
             {% else %}
+            <li class="nav-item">
+               <a style="color:#FFFFFF;" href="{{url_for('users.logout')}}">Log Out</a>
+            </li>
             <li class="nav-item">
                <a style="color:#FFFFFF;" href="#">Stock</a>
             </li>

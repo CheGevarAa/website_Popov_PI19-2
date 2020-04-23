@@ -19,6 +19,7 @@
                 <a style="color:#FFFFFF;" href="{{url_for('base.info')}}">Info</a>
             </li>
             {% if current_user.is_authenticated %}
+
             <li class="nav-item">
                <a style="color:#FFFFFF;" href="{{url_for('blog_posts.create_post')}}">Create Post</a>
             </li>
@@ -45,6 +46,10 @@
             </li>
             <li class="nav-item">
                 <a style="color:#FFFFFF;" href="{{url_for('users.login')}}">Log In</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+               <a style="color:#FFFFFF;" href="#">Stock</a>
             </li>
             {% endif %}
         </ul>

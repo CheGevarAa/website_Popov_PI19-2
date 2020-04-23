@@ -18,7 +18,6 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy=True)
-    tickets = db.relationship('Ticket', backref='owner', lazy=True)
 
     def __init__(self, email, username, password):
         self.email = email
@@ -50,7 +49,6 @@ class Post(db.Model):
 
 
 class Ticket(db.Model):
-    user = db.relationship(User)
     ticket_id = db.Column(db.Integer, primary_key=True)
     departure_time = db.Column(db.String(64), nullable=False)
     arrival_time = db.Column(db.String(64), nullable=False)

@@ -5,3 +5,9 @@ from blog.models import Ticket
 
 stock = Blueprint('stock', __name__)
 
+
+@stock.route('/stock_page')
+def stocks():
+    page_stock = request.args.get('page', 1, type=int)
+    tickets = Ticket.query.order_by(Ticket.date.desc()).paginate(page=page_stock, per_page=10)
+    return render_template('stock_pages.html', tickets=tickets)

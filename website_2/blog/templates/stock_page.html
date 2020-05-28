@@ -13,12 +13,13 @@
                 <h3> {{ ticket.day }} </h3>
                 <p>price: {{ ticket.simple_price }}</p>
                 <p>price for high: {{ ticket.high_price }}</p>
-                <form action="{{url_for('stock.charge')}}" methods="POST">
+                <form action="{{url_for('stock.success')}}" methods="POST">
                     <script
                         src = "https://checkout.stripe.com/checkout.js"
                         class = "stripe-button"
                         data-key = {{public_key}}
-                        data-amount ="1000"
+                        data-amount = {{ticket.simple_price * 100}}
+                        data-currency = "rub"
                         data-name = "Purchasing a ticket"
                         data-description = "Purchase"
                         data-locale = "auto"

@@ -16,7 +16,7 @@ stock = Blueprint('stock', __name__)
 def stocks():
     page_stock = request.args.get('page', 1, type=int)
     tickets = Ticket.query.order_by(Ticket.simple_price.desc()).paginate(page=page_stock, per_page=10)
-    return render_template('stock_page.html', tickets=tickets)
+    return render_template('stock_page.html', tickets=tickets, public_key=public_key)
 
 
 @stock.route('/success')
